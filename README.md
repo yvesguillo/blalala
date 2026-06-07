@@ -11,16 +11,42 @@ Blalala extracts visible text from a web page, and process it through a LLM serv
 > Blalala does not generate new information but rephrases the existing content of the current web page.
 
 ## Why Blalala?
-Information is not always difficult because of its content. Sometimes it is difficult because of the way it is presented.
+Information is not always difficult because of its content. Sometimes it is difficult because of the way it is presented. Blalala propose a simple way to adapt textual content while preserving its core meaning.
 
-- Productivity (telegraphic, removing decorative text (this recipe where we have to learn why this food is recalling the author why he loves his Grand-Mother so much before getting to the ingredient list…))
-- Educational (level of understanding adaptation, audience field adaptation, origination and source finder, …)
-- Curiosity
-- Fun (word replacement, slam / rime with content, fill-in-the-blank)
+Sometimes you just want to keep the author's life story for later tonight and move straight to the recipe. Or maybe some concepts from another science could be applied to your project. But let's face is most of the time we are just bored and want to have stupid fun; and that's alright; we have you covered for that as well.
 
-- Accessibility (semantic territory, translations)
-- Simplification (by fragmentation or level of understanding adaptation)
-- Shortening Concision (direct tone or even telegraphic tone)
+### Productivity
+Consume information faster by reducing unnecessary wording and decorative content.
+- Concise rewriting.
+- Telegraphic style.
+- Bullet-points.
+
+### Education
+Adapt information to your knowledge, level and background.
+- Jargon and terminology annotations.
+- Field of expertise shift.
+- Analogy.
+- Simplification.
+
+### Accessibility
+Make content easier to understand and preserve cognitive load without removing the essence.
+- Reading-level adaptation.
+- Plain-language rewriting.
+- Alternative semantic styles.
+- Step-by-step breakdowns.
+- Translation.
+
+### Curiosity
+Explore different perspectives on the same information.
+- Alternative tones.
+- Communication styles change.
+- Cultural reinterpretations.
+
+### For Fun!
+You got this.  
+“*Replace all reference to "Block-Chain" with a random Pokémon name.*”, “*Alter the text to make it sound like it is read out loud by Sean Connery.*”, “*Make it rhyme!*”…
+
+> If you find one good, please share it!
 
 ## Getting Started
 
@@ -60,24 +86,28 @@ Information is not always difficult because of its content. Sometimes it is diff
 - Contexts configuration simplification.
 - Context presets.
 - Context size automatic optimization.
-- Tone / Personas presets.
-- User persistent preferences.
+- Tone transformation presets.
+- User's persistent preferences.
 
 ## How does it work?
 
 ### Technology
 
 ### Components
-
 - Web Browser
     - Blalala Browser Extension.
+        - Pop-up user's interface.
+        - Text nodes fetching.
+        - Prompt preparation and formatting.
+        - Blalala API requests handling.
     - Fetched web page content.
 
-- LLM service
+- LLM web service
     - Blalala REST API.
     - Ollama engine.
-    - …
+    - LLM model.
 
+### Diagram
 |  |
 | :-: |
 | Web page |
@@ -100,7 +130,7 @@ Feel free to fork, star, or [open an issue](https://github.com/yvesguillo/blalal
 
 ## References and thanks
 
-- …
+- *TBC*
 
 > ### Credit and origination acknowledgement
 > Credit and origination acknowledgement of original patterns or snippets have bee willingfully enforced to our best effort.  
@@ -111,14 +141,14 @@ Because this project is a learning project, we contain AI tools and LLM generate
 
 1. Challenge:
     - Project scope proofing.
-    - 
+    - Ideation material.
 
-1. Guidance:
+2. Guidance:
     - Development standards.
     - Good practices.
     - Syntaxes.
 
-1. Analysis:
+3. Analysis:
     - Code review.
     - Spelling and grammar check / correction.
 
