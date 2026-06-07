@@ -183,13 +183,19 @@ Concepts are first implemented in their simplest understandable form before (if 
 
 > To a lighter note, I personally consider AI LLM agent as highly volunteer yet fallible digital consulting team members.
 
+#### 6. “Do your magic”
+Some topics deemed out of training scope or field of expertise have been fully or broadly delegate to generative AI and LLM:
+- Orthographic and Grammar correction.
+- Illustration generation.
+
 ### Used agents:
 1. **ChatGPT** (online chat)
-1. **Google Gemini** (on **Google Search**)
+2. **Google Gemini** (on **Google Search**)
 
 ## Tooling
 - [***VS Code***](https://github.com/microsoft/vscode)
 - [***LTeX+*** plugin for ***VS Code***](https://github.com/ltex-plus/vscode-ltex-plus)
+- [***Cloudconvert*** PNG to AVIF Converter](https://cloudconvert.com/png-to-avif)
 
 ## Do you like Blalala?
 If you find Blalala useful, **give it a ☆** to support the project!  
