@@ -1,15 +1,15 @@
 # Blalala
 ***Change the tone. Keep the meaning***.  
-*A browser extension for adaptive information consumption.* 
+*A browser extension for adaptive textual content consumption.* 
 
 ![Blalala](/images/blalala.avif)
 
-Blalala is a browser extension that lets you consume web contents in the tone and way that suits you the best while maintaining the core information.
+Blalala is a browser extension that lets you consume web text contents in the tone and way that suits you the best while maintaining the core information.
 
 > Blalala does not generate new information but rephrases the existing content of the current web page.
 
 ## Why Blalala?
-Sometimes you just want to keep the author's life story for later tonight and move straight to the recipe. Or maybe some concepts from another science could be applied to your project. But let's face is most of the time we are just bored and want to have stupid fun; and that's alright; we have you covered for that as well.
+Sometimes you just want to keep the author's life story for later tonight and move straight to the recipe. Or maybe some concepts from another scientific field could apply to your project. But let's face is most of the time we are just bored and we want to have stupid fun. That's alright, we have you covered for that as well.
 
 ### Productivity
 Consume information faster by reducing unnecessary wording and decorative content.
