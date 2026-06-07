@@ -1,48 +1,30 @@
 # Blalala
 ***Change the tone. Keep the meaning***.  
-*A browser extension for adaptive textual content consumption.* 
 
 ![Blalala](/images/blalala.avif)
 
-Blalala is a browser extension that lets you consume web text contents in the tone and way that suits you the best while maintaining the core information.
-
-> Blalala does not generate new information but rephrases the existing content of the current web page.
+A web browser extension that let you change the current web page written content to the tone and mood that suits you the best.  
+That is right; just as you would do with your favorite LLM chat, copying and pasting from a tab to annother but this time the LLM model runs on your machine and you do it with one prompt from the same page.
 
 ## Why Blalala?
-Sometimes you just want to keep the author's life story for later tonight and move straight to the recipe. Or maybe some concepts from another scientific field could apply to your project. But let's face is most of the time we are just bored and we want to have stupid fun. That's alright, we have you covered for that as well.
+Sometimes you just want to keep the author's life story for later tonight and move straight to the recipe. Or maybe some concepts from another scientific field could apply to your project.  
+But let's face it, most of the time we are just bored and we want to have stupid fun. That's alright, we got you covered for that as well.
 
-### Productivity
-Consume information faster by reducing unnecessary wording and decorative content.
+Productivity, education, accessibility, here are **some transformations suggestions**:
 - Concise rewriting.
 - Telegraphic style.
-- Bullet-points.
-
-### Education
-Adapt information to your knowledge, level and background.
 - Jargon and terminology annotations.
 - Field of expertise shift.
 - Analogy.
-- Simplification.
-
-### Accessibility
-Make content easier to understand and preserve cognitive load without removing the essence.
 - Reading-level adaptation.
 - Plain-language rewriting.
-- Alternative semantic styles.
-- Step-by-step breakdowns.
 - Translation.
+- Point of view switch or shift.
 
-### Curiosity
-Explore different perspectives on the same information.
-- Alternative tones.
-- Communication styles change.
-- Cultural reinterpretations.
+**For Fun!**:
+You got this. “*Replace all reference to "Block-Chain" with a random Pokémon name.*”, “*Alter the text to make it sound like it is read out loud by Sean Connery.*”, “*Make it rhyme!*”…
 
-### For Fun!
-You got this.  
-“*Replace all reference to "Block-Chain" with a random Pokémon name.*”, “*Alter the text to make it sound like it is read out loud by Sean Connery.*”, “*Make it rhyme!*”…
-
-> If you find one good, please share it!
+> If you find a good one, please share it!
 
 ## Getting Started
 
