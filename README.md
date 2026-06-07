@@ -71,7 +71,6 @@ You got this.
 ## Features
 
 ### Current version: MVP
-
 - Extension popup activation.
 - Visible text node detection.
 - Parametrized context depth.
@@ -82,7 +81,6 @@ You got this.
 - Restore original content.
 
 ### Roadmap & Crazy Ideas
-
 - Contexts configuration simplification.
 - Context presets.
 - Context size automatic optimization.
@@ -91,7 +89,25 @@ You got this.
 
 ## How does it work?
 
-### Technology
+### Technologies
+- **Browser Extension**
+    - WebExtension API (Chrome, Chromium, Firefox, and compatibles)
+    - JavaScript (***TBC***, TypeScript?)
+    - HTML / CSS
+
+- **REST API**
+    - Python
+    - FastAPI
+    - Pydantic
+
+- **LLM Integration**
+    - Ollama (local inference)
+    - Model ***TBC***
+
+- **Interfacing**
+    - REST
+    - JSON
+    - HTTPS
 
 ### Components
 - Web Browser
@@ -129,7 +145,6 @@ Got ideas? Spot a bug? Wanna make this thing even cooler?
 Feel free to fork, star, or [open an issue](https://github.com/yvesguillo/blalala/issues); we’d love to hear from you!
 
 ## References and thanks
-
 - *TBC*
 
 > ### Credit and origination acknowledgement
@@ -173,7 +188,6 @@ Concepts are first implemented in their simplest understandable form before (if 
 > To a lighter note, I personally consider AI LLM agent as highly volunteer yet fallible digital consulting team members.
 
 ### Used agents:
-
 1. **ChatGPT** (online chat)
 1. **Google Gemini** (on **Google Search**)
 
