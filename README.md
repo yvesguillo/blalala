@@ -8,8 +8,6 @@ That is right; just as you would do with your favorite LLM chat, copying and pas
 
 ## Why Blalala?
 Sometimes you just want to keep the author's life story for later tonight and move straight to the recipe. Or maybe some concepts from another scientific field could apply to your project.  
-But let's face it, most of the time we are just bored and we want to have stupid fun. That's alright, we got you covered for that as well.
-
 Productivity, education, accessibility, here are **some transformations suggestions**:
 - Concise rewriting.
 - Telegraphic style.
