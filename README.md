@@ -6,13 +6,9 @@
 
 Blalala is a browser extension that lets you consume web contents in the tone and way that suits you the best while maintaining the core information.
 
-Blalala extracts visible text from a web page, and process it through a LLM service to substitute it with an alternative version while preserving the original meaning as closely as possible.
-
 > Blalala does not generate new information but rephrases the existing content of the current web page.
 
 ## Why Blalala?
-Information is not always difficult because of its content. Sometimes it is difficult because of the way it is presented. Blalala propose a simple way to adapt textual content while preserving its core meaning.
-
 Sometimes you just want to keep the author's life story for later tonight and move straight to the recipe. Or maybe some concepts from another science could be applied to your project. But let's face is most of the time we are just bored and want to have stupid fun; and that's alright; we have you covered for that as well.
 
 ### Productivity
