@@ -1,0 +1,57 @@
+services:
+  ollama:
+    image: "${OLLAMA_IMAGE}"
+    container_name: blalala-ollama
+    expose:
+      - "${OLLAMA_INTERNAL_PORT}" # Only for Docker container internal uses.
+    volumes:
+      - ollama_data:/root/.ollama # Persistent volumes for heavy data such as models.
+    environment:
+      OLLAMA_HOST: "0.0.0.0:${OLLAMA_INTERNAL_PORT}"
+    healthcheck:
+      test: ["CMD-SHELL", "ollama list >/dev/null 2>&1"] # 1 = stdout, 2 = stderr. So `>/dev/null 2>&1` means send standard output in "/dev/null"'s void and do the same for errors. This will prevent the shell from being flooded by the curl result while checking for service availability. Only the status will be displayed (2, 2, 2, 2, 0 → OK).
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+
+  ollama-init:
+    image: "${OLLAMA_IMAGE}"
+    container_name: blalala-ollama-init
+    env_file: .env
+    volumes:
+      - ollama_data:/root/.ollama # Persistent volumes for heavy data such as models. Shared between `ollama` and `ollama-init`.
+    environment:
+      OLLAMA_HOST: "ollama:${OLLAMA_INTERNAL_PORT}"
+    command: ["pull", "${BLALALA_LLM_MODEL}"]
+    depends_on:
+      ollama:
+        condition: service_healthy
+    restart: "no"
+
+  blalala:
+    build:
+      context: .
+      dockerfile: Dockerfile.blalala.api
+      args:
+        BLALALA_BASE_IMAGE: "${BLALALA_BASE_IMAGE}"
+    container_name: blalala-api
+    ports:
+      - "${BLALALA_EXPOSED_PORT}:${BLALALA_INTERNAL_PORT}"
+    environment:
+      BLALALA_LLM_MODEL: "${BLALALA_LLM_MODEL}"
+      OLLAMA_BASE_URL: "http://ollama:${OLLAMA_INTERNAL_PORT}"
+      BLALALA_INTERNAL_PORT: "${BLALALA_INTERNAL_PORT}"
+      DEBUG: "${DEBUG}"
+    volumes:
+      - ./app:/app/app # We keep binding for API test and dev convenience.
+    depends_on:
+      ollama:
+        condition: service_healthy
+      ollama-init:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
