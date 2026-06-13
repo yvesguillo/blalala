@@ -1,1 +1,11 @@
+# IDE
 .vscode
+
+# Cache
+__pycache__/
+
+# Project specific
+ollama_models/
+
+# Working notes
+notes.md
