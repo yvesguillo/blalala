@@ -8,4 +8,5 @@ __pycache__/
 ollama_models/
 
 # Working notes
-notes.md
+digest.md
+.crawlectignore
