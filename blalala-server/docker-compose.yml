@@ -45,7 +45,7 @@ services:
       BLALALA_INTERNAL_PORT: "${BLALALA_INTERNAL_PORT}"
       DEBUG: "${DEBUG}"
     volumes:
-      - ./app:/app/app # We keep binding for API test and dev convenience.
+      - ./app:/app/app # We keep binding for API test and dev convenience. This becomes very handy when `DEBUG=true` in `.env` and `--reload` is therefore active on Uvicorn service. This will allow changes in the API to be immediately reflected on the service.
     depends_on:
       ollama:
         condition: service_healthy
