@@ -1,4 +1,4 @@
-// This script will be executed upon extension popup activation and initialize popup UI. It is called from `popup.html`.
+// This will be executed in a new process **each time** the submit button from popup.html is clicked. The Event callback for this click is defined in `popup.ts`.
 
 const form = document.querySelector("#blalala-form") as HTMLFormElement | null;
 
