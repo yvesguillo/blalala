@@ -1,15 +1,23 @@
 import os
-import json
-import httpx
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from pydantic import BaseModel
+from app.services.ollama_service import OllamaService
+from app.services.transform_service import TransformService
+from app.schemas.transform import TransformRequest, TransformResponse
 
 # Config ######################################################################
 
 debug = os.getenv("DEBUG", "false").lower() == "true"
+
+ollama_service = OllamaService(
+    base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
+    model=os.getenv("OLLAMA_MODEL", "qwen3:0.6b"),
+    timeout=float(os.getenv("OLLAMA_TIMEOUT", "60")),
+)
+
+transform_service = TransformService(ollama_service)
 
 app = FastAPI(
     docs_url="/docs" if debug else None,
@@ -24,28 +32,29 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # Model #######################################################################
 
-class TransformRequest(BaseModel):
-    text: str
-    persona: str
-    tone: str
-    style: str
-    custom_instruction: str = ""
 
-
-class TransformResponse(BaseModel):
-    text: str
 
 
 # Routes ######################################################################
 
-@app.post("/transform", response_model=TransformResponse)
-async def transform(payload: TransformRequest) -> TransformResponse:
-    return TransformResponse(
-        text=f"[{payload.persona} / {payload.tone} / {payload.style}] {payload.text}"
-    )
-
 @app.get("/")
 async def root():
     return {"message": f"It's alive! Ant it watch! (If `DEBUG` is `True`). Right now `DEBUG` is `{debug}`."}
+
+@app.post("/transform", response_model=TransformResponse)
+async def transform_text(payload: TransformRequest) -> TransformResponse:
+    transformed_text = await transform_service.transform(
+        text=payload.text,
+        persona=payload.persona,
+        tone=payload.tone,
+        style=payload.style,
+        custom_instruction=payload.custom_instruction,
+    )
+
+    return TransformResponse(
+        original_text=payload.text,
+        transformed_text=transformed_text,
+    )

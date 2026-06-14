@@ -57,7 +57,20 @@ cd blalala
     cd blalala-server
     docker compose -f blalala-server/docker-compose.yml up --build
     ```
-This will build Blalala API service and Ollama then pull the default LLM model. 
+This will build Blalala API service and Ollama then pull the default LLM model.
+
+##### Quick API test:
+1. On [`http://localhost:3000/docs#/default/transform_text_transform_post`](http://localhost:3000/docs#/default/transform_text_transform_post)…
+2. try:  
+    ```json
+    {
+      "text": "Kouign-amann is a traditional pastry from Brittany, France. It is made from a laminated dough containing flour, water, yeast, butter, and sugar. The dough is folded several times, creating many thin layers similar to puff pastry. During baking, the butter melts and the sugar caramelizes, producing a crisp, golden exterior and a rich, tender interior. The pastry is often served warm and is appreciated for its intense buttery flavor and delicate crunch. A typical kouign-amann contains a significant amount of butter and sugar, making it one of the richest pastries in French baking. Despite its caloric density, it remains a beloved specialty and an iconic part of Breton culinary heritage. To prepare a kouign-amann, the dough is first mixed and allowed to rise. Butter and sugar are then enclosed in the dough before several rounds of folding and resting. The pastry is finally shaped, baked until deeply caramelized, and allowed to cool slightly before serving.",
+      "persona": "alien social scientist",
+      "tone": "grave",
+      "style": "descriptive",
+      "custom_instruction": "Analyze the pastry as if it were an important cultural ritual performed by the human species. Show concern about the extraordinary concentration of calories, butter, and sugar while remaining respectful and scientific."
+    }
+    ```
 
 > By default, the Docker stack automatically downloads the model specified in `blalala-server/.env` during the first startup.  
 Cached model are stored in the Ollama volume (`ollama_data`).
@@ -79,7 +92,9 @@ Cached model are stored in the Ollama volume (`ollama_data`).
     Option B. On ***Firefox*** or ***Gecko*** browsers:
     1. *TBD…*
 
-You should now be able to access the extension and expand it.
+You should now be able to access the extension and expand it on any web pages.
+
+> **(!)** The client system is very, very demanding, and generate a lot of request. Responses are slow and not optimized for now. Try it on low contents web pages, or you might not see much opening.
 
 ## How to use Blalala?
 

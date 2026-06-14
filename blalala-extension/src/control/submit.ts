@@ -62,7 +62,7 @@ window.blalala.transformPage = async (params: BlalalaParams): Promise<void> => {
 
         // Replace document text node content with request feedback.
         const data = await response.json();
-
-        wrappedNode.node.textContent = data.text;
+        console.log(data.transformed_text);
+        wrappedNode.node.textContent = data.transformed_text;
     }
 };
