@@ -6,11 +6,62 @@
     <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-    <h1>Blalala</h1>
+    <main>
+        <h1>Blalala</h1>
 
-    <p>Some content…</p>
+        <p class="tagline">
+            Change the tone. Keep the meaning.
+        </p>
 
-    <button id="switch">Some UI</button>
+        <p>
+            Blalala lets you transform the text of the current web page into the tone and style that suits you best.
+        </p>
+
+        <form id="blalala-form">
+            <label for="persona">Persona</label>
+            <select id="persona" name="persona">
+                <option value="journalist" selected>Journalist</option>
+                <option value="teacher">Teacher</option>
+                <option value="scientist">Scientist</option>
+                <option value="legal attorney">Legal Attorney</option>
+                <option value="medical doctor">Medical Doctor</option>
+                <option value="spiritual guide">Spiritual Guide</option>
+                <option value="alien social scientist">Alien Social Scientist</option>
+                <option value="robot">Robot</option>
+            </select>
+
+            <label for="tone">Tone</label>
+            <select id="tone" name="tone">
+                <option value="grave">Grave</option>
+                <option value="formal">Formal</option>
+                <option value="neutral" selected>Neutral</option>
+                <option value="friendly">Friendly</option>
+                <option value="humorous">Humorous</option>
+                <option value="absurd">Absurd</option>
+            </select>
+
+            <label for="style">Style</label>
+            <select id="style" name="style">
+                <option value="telegraphic">Telegraphic</option>
+                <option value="concise" selected>Concise</option>
+                <option value="neutral">Neutral</option>
+                <option value="precise">Precise</option>
+                <option value="descriptive">Descriptive</option>
+                <option value="exhaustive">Exhaustive</option>
+            </select>
+
+            <label for="custom-instruct">Custom instruction</label>
+            <textarea
+                id="custom-instruct"
+                name="custom_instruct"
+                placeholder="Additional instructions for the model."
+            ></textarea>
+
+            <button id="blalala-submit" type="submit">
+                Transform tone
+            </button>
+        </form>
+    </main>
 
     <!-- Alias the browser API to allow cross browser family portability. -->
     <script src="api.js"></script>

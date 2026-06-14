@@ -91,15 +91,15 @@ You should now be able to access the extension and expand it.
 
 ### Current version: MVP
 - Extension popup activation.
-- Visible text node detection.
-- Parametrized context depth.
+- Current page text node collection.
 - Tone transformation controls.  
   *Persona / Role, Personality / Style, Context / Situation, Custom instructions*
+
+### Roadmap & Crazy Ideas
+- Parametrized context depth.
 - Target language.  
   *Same, EN, FR, …*
 - Restore original content.
-
-### Roadmap & Crazy Ideas
 - Contexts configuration simplification.
 - Context presets.
 - Context size automatic optimization.
