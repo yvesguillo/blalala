@@ -27,7 +27,11 @@ You got this. “*Replace all reference to "Block-Chain" with a random Pokémon 
 ## Getting Started
 
 ### Requirements
-1. Docker
+1. ***Docker***
+2. ***Node.js***
+3. ***TypeScript***
+4. ***Chrome*** or ***Chromium*** browser  
+    > This MVP does not support Gecko browser like ***Firefox*** yet.
 
 ### Installation
 Pull this project and enter it:
@@ -59,7 +63,23 @@ This will build Blalala API service and Ollama then pull the default LLM model.
 Cached model are stored in the Ollama volume (`ollama_data`).
 
 #### Install browser extension
+1. **Build the extension**:  
+    Moves to `./blalala-extension/` folder then transpile TypScripts files and copy static contents from `./public` to `./build`:
+    ```bash
+    npx tsc
+    cp ./public/* ./build/
+    ```
+1. **Install on you web Browser**:  
+    Option A. On ***Chrome*** or ***Chromium*** browsers:  
+    1. Navigate to [`chrome://extensions/`](chrome://extensions/).
+    1. Allow ***Developer mode*** (top left switch).
+    1. Click `[Load unpacked]`.
+    1. Navigate to this project's `./blalala-extension/build/` folder and click `[Select]`.
 
+    Option B. On ***Firefox*** or ***Gecko*** browsers:
+    1. *TBD…*
+
+You should now be able to access the extension and expand it.
 
 ## How to use Blalala?
 
