@@ -33,7 +33,7 @@ app.add_middleware(
 )
 
 
-# Model #######################################################################
+# Schemas #######################################################################
 
 
 
@@ -55,6 +55,6 @@ async def transform_text(payload: TransformRequest) -> TransformResponse:
     )
 
     return TransformResponse(
-        original_text=payload.text,
+        # original_text=payload.text,
         transformed_text=transformed_text,
     )

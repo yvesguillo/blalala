@@ -8,5 +8,5 @@ class TransformRequest(BaseModel):
     custom_instruction: str = Field(default="")
 
 class TransformResponse(BaseModel):
-    original_text: str
+    # original_text: str
     transformed_text: str
