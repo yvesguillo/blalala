@@ -7,6 +7,9 @@ __pycache__/
 # Dependencies
 node_modules/
 
+# Builds
+build/
+
 # Project specific
 ollama_models/
 

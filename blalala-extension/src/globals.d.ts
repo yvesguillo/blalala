@@ -1,0 +1,1 @@
+declare var browser_api: typeof chrome;

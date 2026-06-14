@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Blalala",
+    "version": "1.0.0",
+    "description": "TBD",
+
+    "action": {
+        "default_title": "Blalala",
+        "default_popup": "popup.html"
+    },
+
+    "permissions": ["activeTab", "scripting"],
+
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "blalala@yvesguillo.ch"
+        }
+    }
+}
