@@ -1,7 +1,7 @@
 // This script will be executed upon extension popup activation and initialize popup UI. It is called from `popup.html`.
 
-// Get the current tab of active window and define a callback function.
-browser_api.tabs.query(
+// Get the current tab of active window and define a script callback function to inject a script in current document.
+/*window.browser_api.tabs.query(
     { active: true, currentWindow: true }, // Tab selection criterias.
 
     // Callback.
@@ -15,19 +15,22 @@ browser_api.tabs.query(
         }
 
         // Execute scripts listed in `files` parameter, into the selected Tab.
-        browser_api.scripting.executeScript({
+        window.browser_api.scripting.executeScript({
             target: { tabId },
-            files: ["content.js"],
+            files: [
+                "./content/dom-scanner.js",
+                "./content/content.js",
+            ],
         });
     }
-);
+);*/
 
-// Set a click event callback on a `popup.html` element.
-const switchButton = document.querySelector<HTMLButtonElement>("#switch");
+// Set a click event callback on a `popup.html` element to inject a script in current document.
+const switchButton = document.querySelector<HTMLButtonElement>("#blalala-submit");
 
 switchButton?.addEventListener("click", () => {
     // Get the current tab of active window and define a callback function.
-    browser_api.tabs.query(
+    window.browser_api.tabs.query(
         { active: true, currentWindow: true }, // Tab selection criterias.
 
         // Callback.
@@ -41,9 +44,12 @@ switchButton?.addEventListener("click", () => {
             }
 
             // Execute scripts listed in `files` parameter, into the selected Tab.
-            browser_api.scripting.executeScript({
+            window.browser_api.scripting.executeScript({
                 target: { tabId },
-                files: ["content.js"],
+                files: [
+                    "./content/dom-scanner.js",
+                    "./content/content.js",
+                ],
             });
         }
     );

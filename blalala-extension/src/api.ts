@@ -1,2 +1,2 @@
 // Fallback alias for current browser API to allow installing on Chromium or Gecko browsers. It is called from `popup.html`.
-globalThis.browser_api = /*globalThis.browser ??*/ globalThis.chrome; // TBD, for MVP we foccus on Chromium.
+window.browser_api = window.chrome; // TBD, for MVP we foccus on Chromium.
