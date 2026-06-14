@@ -54,8 +54,7 @@ cd blalala
 
 1. Build containers to start services:
     ```bash
-    cd blalala-server
-    docker compose -f blalala-server/docker-compose.yml up --build
+    docker compose up --build
     ```
 This will build Blalala API service and Ollama then pull the default LLM model.
 
@@ -94,13 +93,12 @@ Cached model are stored in the Ollama volume (`ollama_data`).
 
 You should now be able to access the extension and expand it on any web pages.
 
-> **(!)** The client system is very, very demanding, and generate a lot of request. Responses are slow and not optimized for now. Try it on low contents web pages, or you might not see much opening.
+##### Quick Extension test:
+1. On Chromium browser, navigate to a simple page such as 404 page of most sites (to limit texts contents amount).
+1. Click the *Blalala* `(B)` extension icon from top right menu bar to open the popup menu.
+1. Set some transformation options and click `[Transform tone]` button.
 
-## How to use Blalala?
-
-### Quick start
-
-### User guide
+> **(!)** The client system is very demanding, and generate a lot of request. Responses are slow and not optimized for now. Try it on low contents web pages, or you might not see much opening.  
 
 ## Features
 
@@ -121,6 +119,13 @@ You should now be able to access the extension and expand it on any web pages.
 - Tone transformation presets.
 - User's persistent preferences.
 
+## Known limitations
+
+- This MVP does not persist user exchange history yet.
+- No authentication is implemented.
+- The browser extension is experimental and can generate many API requests on text-heavy pages.
+- Some Text Nodes elements are not textual content and are missused, such `<style>` elements.
+
 ## How does it work?
 
 ### Technologies
@@ -136,7 +141,7 @@ You should now be able to access the extension and expand it on any web pages.
 
 - **LLM Integration**
     - Ollama (local inference)
-    - Model ***TBC***
+    - Model : `qwen3:1.7b`
 
 - **Interfacing**
     - REST
@@ -160,24 +165,37 @@ You should now be able to access the extension and expand it on any web pages.
 ### Project Files
 ```
 blalala/
- ├─ blalala-server/                  # Holds the Blalala API services sources.
- │   ├─ app/
- │   │   ├─ routers/
- │   │   │   └─ tone.py
- │   │   ├─ services/
- │   │   │   └─ ollama.py
- │   │   ├─ config.py
- │   │   └─ main.py
- │   ├─ .dockerignore
- │   ├─ .env                         # Hold som usefull setup variables such as LLM choice.
- │   ├─ docker-compose.yml
- │   ├─ Dockerfile.blalala.api       # Lightweight image build for Blalala API.
- │   ├─ entrypoint.blalala.api.sh    # Scripted Uvicorn start (for DEBUG True/False).
- │   └─ requirements.blalala.api.txt
- ├─ images/
- │   └─ blalala.avif
- └─ LICENSE
-
+ ├─ blalala-extension/
+ │   ├─ public/
+ │   │   ├─ manifest.json
+ │   │   ├─ popup.css
+ │   │   └─ popup.html
+ │   ├─ src/
+ │   │   ├─ control/
+ │   │   │   └─ submit.ts
+ │   │   ├─ model/
+ │   │   │   └─ dom-scanner.ts
+ │   │   ├─ api.ts
+ │   │   ├─ globals.d.ts
+ │   │   └─ popup.ts
+ │   ├─ package-lock.json
+ │   ├─ package.json
+ │   └─ tsconfig.json
+ └─ blalala-server/                   # Holds the Blalala API services sources.
+     ├─ app/
+     │   ├─ schemas/
+     │   │   └─ transform.py
+     │   ├─ services/
+     │   │   ├─ ollama_service.py
+     │   │   └─ transform_service.py
+     │   ├─ config.py
+     │   └─ main.py
+     ├─ .dockerignore
+     ├─ .env                          # Hold som usefull setup variables such as LLM choice.
+     ├─ docker-compose.yml
+     ├─ Dockerfile.blalala.api        # Lightweight image build for Blalala API.
+     ├─ entrypoint.blalala.api.sh     # Scripted Uvicorn start (for DEBUG True/False).
+     └─ requirements.blalala.api.txt
 ```
 
 ### Diagrams
