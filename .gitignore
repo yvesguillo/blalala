@@ -4,6 +4,9 @@
 # Cache
 __pycache__/
 
+# Dependencies
+node_modules/
+
 # Project specific
 ollama_models/
 
