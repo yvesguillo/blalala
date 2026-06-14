@@ -4,7 +4,7 @@
 ![Blalala](/images/blalala.avif)
 
 A web browser extension that let you change the current web page written content to the tone and mood that suits you the best.  
-That is right; just as you would do with your favorite LLM chat, copying and pasting from a tab to annother but this time the LLM model runs on your machine and you do it with one prompt from the same page.
+That is right; just as you would do with your favorite LLM chat, copying and pasting from a tab to another but this time the LLM model runs on your machine, and you do it with one prompt from the same page.
 
 ## Why Blalala?
 Sometimes you just want to keep the author's life story for later tonight and move straight to the recipe. Or maybe some concepts from another scientific field could apply to your project.  
@@ -27,15 +27,38 @@ You got this. “*Replace all reference to "Block-Chain" with a random Pokémon 
 ## Getting Started
 
 ### Requirements
-
+1. Docker
 
 ### Installation
+Pull this project and enter it:
+```bash
+git clone https://github.com/yvesguillo/blalala.git
+cd blalala
+```
 
+#### Start API and LLM services
+1. Get into Blalala Server's folder
+    ```bash
+    cd blalala-server
+    ```
 
-#### LLM service
+1. Check the LLM choice and edit if needed:
+    ```bash
+    cat .env
+    ```
+    > You may also edit DEBUG status if needed. `DEBUG=true` will allow FastAPI watching, `/docs`, `/redoc` and `/openapi.json` routes as well as more info on HTTP request headers.
 
+1. Build containers to start services:
+    ```bash
+    cd blalala-server
+    docker compose -f blalala-server/docker-compose.yml up --build
+    ```
+This will build Blalala API service and Ollama then pull the default LLM model. 
 
-#### Browser Extension
+> By default, the Docker stack automatically downloads the model specified in `blalala-server/.env` during the first startup.  
+Cached model are stored in the Ollama volume (`ollama_data`).
+
+#### Install browser extension
 
 
 ## How to use Blalala?
@@ -99,7 +122,49 @@ You got this. “*Replace all reference to "Block-Chain" with a random Pokémon 
     - Ollama engine.
     - LLM model.
 
-### Diagram
+### Project Files
+```
+blalala/
+ ├─ blalala-server/                  # Holds the Blalala API services sources.
+ │   ├─ app/
+ │   │   ├─ routers/
+ │   │   │   └─ tone.py
+ │   │   ├─ services/
+ │   │   │   └─ ollama.py
+ │   │   ├─ config.py
+ │   │   └─ main.py
+ │   ├─ .dockerignore
+ │   ├─ .env                         # Hold som usefull setup variables such as LLM choice.
+ │   ├─ docker-compose.yml
+ │   ├─ Dockerfile.blalala.api       # Lightweight image build for Blalala API.
+ │   ├─ entrypoint.blalala.api.sh    # Scripted Uvicorn start (for DEBUG True/False).
+ │   └─ requirements.blalala.api.txt
+ ├─ images/
+ │   └─ blalala.avif
+ └─ LICENSE
+
+```
+
+### Diagrams
+
+#### API Server startup
+|  |
+| :-: |
+| `docker compose up` |
+| ↓ |
+| ollama healthy |
+| ↓ |
+| ollama-init pulls model |
+| ↓ |
+| blalala server starts |
+| ↓ |
+| `entrypoint.sh` |
+| ↓ |
+| Blalala uvicorn API starts |
+| ↓ |
+| [`http://localhost:3000/`](http://localhost:3000/) |
+
+#### Browser Extension flow
 |  |
 | :-: |
 | Web page |
