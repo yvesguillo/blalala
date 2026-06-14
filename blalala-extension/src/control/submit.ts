@@ -6,11 +6,16 @@
     if (!textNodes) {
         console.warn("Blalala DOM scanner is not available.");
         return;
-    }
+    } else {
+        const capturedWrappedNodes = window.blalala?.wrappTextNodes(textNodes);
 
-    console.log(`Found ${textNodes.length} text nodes.`);
-
-    for(let node of textNodes) {
-        node.nodeValue = "";
+        if(!capturedWrappedNodes) {
+            console.warn("Could not build text node collection.");
+            return;
+        } else {
+            for(let wrappedNode of capturedWrappedNodes) {
+                wrappedNode.node.nodeValue = "";
+            }
+        }
     }
 })();

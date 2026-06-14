@@ -18,8 +18,8 @@
         window.browser_api.scripting.executeScript({
             target: { tabId },
             files: [
-                "./content/dom-scanner.js",
-                "./content/content.js",
+                "./model/dom-scanner.js",
+                "./control/submit.js",
             ],
         });
     }
@@ -47,8 +47,8 @@ switchButton?.addEventListener("click", () => {
             window.browser_api.scripting.executeScript({
                 target: { tabId },
                 files: [
-                    "./content/dom-scanner.js",
-                    "./content/content.js",
+                    "./model/dom-scanner.js",
+                    "./control/submit.js",
                 ],
             });
         }

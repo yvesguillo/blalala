@@ -1,3 +1,8 @@
+interface BlalalaTextNode {
+    node: Text;
+    originalText: string;
+}
+
 window.blalala ??= {
     getTextNodes(root: Node = document.body): Text[] {
         const iterator = document.createNodeIterator(
@@ -13,5 +18,12 @@ window.blalala ??= {
         }
 
         return nodes;
+    },
+
+    wrappTextNodes(nodes: Text[]): BlalalaTextNode[] {
+        return nodes.map((node) => ({
+            node,
+            originalText: node.textContent ?? "",
+        }));
     },
 };
