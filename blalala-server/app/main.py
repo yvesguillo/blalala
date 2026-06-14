@@ -12,8 +12,8 @@ from app.schemas.transform import TransformRequest, TransformResponse
 debug = os.getenv("DEBUG", "false").lower() == "true"
 
 ollama_service = OllamaService(
-    base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
-    model=os.getenv("OLLAMA_MODEL", "qwen3:0.6b"),
+    base_url=os.getenv("OLLAMA_BASE_URL", "http://ollama:11434"),
+    model=os.getenv("OLLAMA_MODEL", "qwen3:1.7b"),
     timeout=float(os.getenv("OLLAMA_TIMEOUT", "60")),
 )
 

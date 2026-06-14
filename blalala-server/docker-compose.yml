@@ -24,7 +24,7 @@ services:
       - ollama_data:/root/.ollama # Persistent volumes for heavy data such as models. Shared between `ollama` and `ollama-init`.
     environment:
       OLLAMA_HOST: "ollama:${OLLAMA_INTERNAL_PORT}"
-    command: ["pull", "${BLALALA_LLM_MODEL}"]
+    command: ["pull", "${OLLAMA_MODEL}"]
     depends_on:
       ollama:
         condition: service_healthy
@@ -40,8 +40,9 @@ services:
     ports:
       - "${BLALALA_EXPOSED_PORT}:${BLALALA_INTERNAL_PORT}"
     environment:
-      BLALALA_LLM_MODEL: "${BLALALA_LLM_MODEL}"
-      OLLAMA_BASE_URL: "http://ollama:${OLLAMA_INTERNAL_PORT}"
+      OLLAMA_MODEL: "${OLLAMA_MODEL}"
+      OLLAMA_BASE_URL: "http://ollama:11434"
+      OLLAMA_TIMEOUT: "${OLLAMA_TIMEOUT}"
       BLALALA_INTERNAL_PORT: "${BLALALA_INTERNAL_PORT}"
       DEBUG: "${DEBUG}"
     volumes:
