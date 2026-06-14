@@ -1,56 +1,47 @@
 // This script will be executed upon extension popup activation and initialize popup UI. It is called from `popup.html`.
 
-// Get the current tab of active window and define a script callback function to inject a script in current document.
-/*window.browser_api.tabs.query(
-    { active: true, currentWindow: true }, // Tab selection criterias.
+const form = document.querySelector("#blalala-form") as HTMLFormElement | null;
 
-    // Callback.
-    (tabs: chrome.tabs.Tab[]) => {
-        const tabId = tabs[0]?.id; // Get Tab ID.
+form?.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-        // Exit if no Tab ID.
-        if (tabId === undefined) {
-            console.warn("No active tab found.");
-            return;
-        }
+    const formData = new FormData(form);
 
-        // Execute scripts listed in `files` parameter, into the selected Tab.
-        window.browser_api.scripting.executeScript({
-            target: { tabId },
-            files: [
-                "./model/dom-scanner.js",
-                "./control/submit.js",
-            ],
-        });
-    }
-);*/
+    const params = {
+        persona: String(formData.get("persona") ?? ""),
+        tone: String(formData.get("tone") ?? ""),
+        style: String(formData.get("style") ?? ""),
+        customInstruction: String(formData.get("custom_instruct") ?? ""),
+    };
 
-// Set a click event callback on a `popup.html` element to inject a script in current document.
-const switchButton = document.querySelector<HTMLButtonElement>("#blalala-submit");
-
-switchButton?.addEventListener("click", () => {
-    // Get the current tab of active window and define a callback function.
     window.browser_api.tabs.query(
-        { active: true, currentWindow: true }, // Tab selection criterias.
-
-        // Callback.
+        { active: true, currentWindow: true },
         (tabs: chrome.tabs.Tab[]) => {
-            const tabId = tabs[0]?.id; // Get Tab ID.
+            const tabId = tabs[0]?.id;
 
-            // Exit if no Tab ID.
             if (tabId === undefined) {
                 console.warn("No active tab found.");
                 return;
             }
 
-            // Execute scripts listed in `files` parameter, into the selected Tab.
-            window.browser_api.scripting.executeScript({
-                target: { tabId },
-                files: [
-                    "./model/dom-scanner.js",
-                    "./control/submit.js",
-                ],
-            });
+            window.browser_api.scripting.executeScript(
+                {
+                    target: { tabId },
+                    files: [
+                        "./model/dom-scanner.js",
+                        "./control/submit.js",
+                    ],
+                },
+                () => {
+                    window.browser_api.scripting.executeScript({
+                        target: { tabId },
+                        func: (params: BlalalaParams) => {
+                            window.blalala?.transformPage(params);
+                        },
+                        args: [params],
+                    });
+                }
+            );
         }
     );
 });

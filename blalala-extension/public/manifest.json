@@ -11,6 +11,11 @@
 
     "permissions": ["activeTab", "scripting"],
 
+    "host_permissions": [
+        "http://127.0.0.1:3000/*",
+        "http://localhost:3000/*"
+    ],
+
     "browser_specific_settings": {
         "gecko": {
             "id": "blalala@yvesguillo.ch"
