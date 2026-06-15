@@ -78,6 +78,7 @@ Cached model are stored in the Ollama volume (`ollama_data`).
 1. **Build the extension**:  
     Moves to `./blalala-extension/` folder then transpile TypScripts files and copy static contents from `./public` to `./build`:
     ```bash
+    npm ci
     npx tsc
     cp ./public/* ./build/
     ```
@@ -94,7 +95,7 @@ Cached model are stored in the Ollama volume (`ollama_data`).
 You should now be able to access the extension and expand it on any web pages.
 
 ##### Quick Extension test:
-1. On Chromium browser, navigate to a simple page such as 404 page of most sites (to limit texts contents amount).
+1. On Chromium browser, navigate to a short and simple page e.g: [`https://www.google.com/404`](https://www.google.com/404) (to limit texts contents amount). 
 1. Click the *Blalala* `(B)` extension icon from top right menu bar to open the popup menu.
 1. Set some transformation options and click `[Transform tone]` button.
 
@@ -239,7 +240,36 @@ Got ideas? Spot a bug? Wanna make this thing even cooler?
 Feel free to fork, star, or [open an issue](https://github.com/yvesguillo/blalala/issues); we’d love to hear from you!
 
 ## References and thanks
-- *TBC*
+
+### Core technologies
+
+- [FastAPI](https://fastapi.tiangolo.com/) - Python web framework used to expose the REST API.
+- [Pydantic](https://docs.pydantic.dev/) - Data validation and serialization.
+- [Ollama](https://ollama.com/) - Local LLM inference engine.
+- [Qwen3](https://qwenlm.github.io/) - Default language model used during development.
+- [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) - Containerization and service orchestration.
+- [TypeScript](https://www.typescriptlang.org/) - Browser extension development.
+- [Chrome Extensions Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3) - Browser extension platform.
+- [WebExtensions API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions) - Cross-browser extension compatibility reference.
+
+### Documentation and learning resources
+
+- [FastAPI documentation](https://fastapi.tiangolo.com/)
+- [Ollama API reference](https://github.com/ollama/ollama/blob/main/docs/api.md)
+- [MDN Web Docs](https://developer.mozilla.org/)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [Docker documentation](https://docs.docker.com/)
+- [VS Code Dev Containers documentation](https://code.visualstudio.com/docs/devcontainers/containers)
+
+### Tools
+- [VS Code](https://github.com/microsoft/vscode)
+- [LTeX+](https://github.com/ltex-plus/vscode-ltex-plus) - plugin for ***VS Code***
+- [Cloudconvert](https://cloudconvert.com/png-to-avif) - PNG to AVIF Converter
+- [Crawlect](https://pypi.org/project/Crawlect/) - Project structure documentation generation.
+
+### AI agents:
+- **ChatGPT** (online chat)
+- **Google Gemini** (on **Google Search**)
 
 > ### Credit and origination acknowledgement
 > Credit and origination acknowledgement of original patterns or snippets have bee willingfully enforced to our best effort.  
@@ -285,15 +315,6 @@ Concepts are first implemented in their simplest understandable form before (if 
 Some topics deemed out of training scope or field of expertise have been fully or broadly delegate to generative AI and LLM:
 - Orthographic and Grammar correction.
 - Illustration generation.
-
-### Used agents:
-1. **ChatGPT** (online chat)
-2. **Google Gemini** (on **Google Search**)
-
-## Tooling
-- [***VS Code***](https://github.com/microsoft/vscode)
-- [***LTeX+*** plugin for ***VS Code***](https://github.com/ltex-plus/vscode-ltex-plus)
-- [***Cloudconvert*** PNG to AVIF Converter](https://cloudconvert.com/png-to-avif)
 
 ## Do you like Blalala?
 If you find Blalala useful, **give it a ☆** to support the project!  
